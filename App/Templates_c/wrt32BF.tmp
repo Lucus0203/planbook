@@ -1,0 +1,179 @@
+<?php /* Smarty version 2.6.18, created on 2014-12-11 15:10:16
+         compiled from qa/qa.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'url', 'qa/qa.tpl', 16, false),array('modifier', 'replace', 'qa/qa.tpl', 23, false),array('modifier', 'nl2br', 'qa/qa.tpl', 23, false),)), $this); ?>
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale= 1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+<meta name="format-detection" content="telephone=no"/>
+<title><?php echo $this->_tpl_vars['questionnaire']['title']; ?>
+</title>
+<link href="<?php echo @SITE; ?>
+resource/css/qa.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="<?php echo @SITE; ?>
+resource/js/jQuery.js"></script>
+<script type="text/javascript" src="<?php echo @SITE; ?>
+resource/js/qa.js"></script>
+</head>
+
+<body>
+
+<div class="wj_box">
+	<form action="<?php echo $this->_plugins['function']['url'][0][0]->_pi_func_url(array('controller' => 'Answer','action' => 'Submit'), $this);?>
+" method="post">
+	<input type="hidden" name="act" value="submit" />
+	<input type="hidden" name="questionnaire_unit" value="<?php echo $this->_tpl_vars['questionnaire']['id']; ?>
+" />
+	<input type="hidden" id="questionnaire_status" value="<?php echo $this->_tpl_vars['questionnaire']['status']; ?>
+" />
+	<input type="hidden" id="time" name="time" value="0" />
+	<div class="wj_t">
+		<h1><?php echo $this->_tpl_vars['questionnaire']['title']; ?>
+</h1>
+    	<p><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['questionnaire']['author'])) ? $this->_run_mod_handler('replace', true, $_tmp, ' ', "&nbsp;") : smarty_modifier_replace($_tmp, ' ', "&nbsp;")))) ? $this->_run_mod_handler('nl2br', true, $_tmp) : smarty_modifier_nl2br($_tmp)); ?>
+</p>
+    	<p><span class="keyword">关键字:</span><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['questionnaire']['keywords'])) ? $this->_run_mod_handler('replace', true, $_tmp, ' ', "&nbsp;") : smarty_modifier_replace($_tmp, ' ', "&nbsp;")))) ? $this->_run_mod_handler('nl2br', true, $_tmp) : smarty_modifier_nl2br($_tmp)); ?>
+</p>
+    	<h4>摘要:</h4>
+    	<?php unset($this->_sections['abs']);
+$this->_sections['abs']['name'] = 'abs';
+$this->_sections['abs']['loop'] = is_array($_loop=$this->_tpl_vars['abstract']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['abs']['show'] = true;
+$this->_sections['abs']['max'] = $this->_sections['abs']['loop'];
+$this->_sections['abs']['step'] = 1;
+$this->_sections['abs']['start'] = $this->_sections['abs']['step'] > 0 ? 0 : $this->_sections['abs']['loop']-1;
+if ($this->_sections['abs']['show']) {
+    $this->_sections['abs']['total'] = $this->_sections['abs']['loop'];
+    if ($this->_sections['abs']['total'] == 0)
+        $this->_sections['abs']['show'] = false;
+} else
+    $this->_sections['abs']['total'] = 0;
+if ($this->_sections['abs']['show']):
+
+            for ($this->_sections['abs']['index'] = $this->_sections['abs']['start'], $this->_sections['abs']['iteration'] = 1;
+                 $this->_sections['abs']['iteration'] <= $this->_sections['abs']['total'];
+                 $this->_sections['abs']['index'] += $this->_sections['abs']['step'], $this->_sections['abs']['iteration']++):
+$this->_sections['abs']['rownum'] = $this->_sections['abs']['iteration'];
+$this->_sections['abs']['index_prev'] = $this->_sections['abs']['index'] - $this->_sections['abs']['step'];
+$this->_sections['abs']['index_next'] = $this->_sections['abs']['index'] + $this->_sections['abs']['step'];
+$this->_sections['abs']['first']      = ($this->_sections['abs']['iteration'] == 1);
+$this->_sections['abs']['last']       = ($this->_sections['abs']['iteration'] == $this->_sections['abs']['total']);
+?>
+    	<p><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['abstract'][$this->_sections['abs']['index']]['content'])) ? $this->_run_mod_handler('replace', true, $_tmp, ' ', "&nbsp;") : smarty_modifier_replace($_tmp, ' ', "&nbsp;")))) ? $this->_run_mod_handler('nl2br', true, $_tmp) : smarty_modifier_nl2br($_tmp)); ?>
+</p>
+    	<?php if ($this->_tpl_vars['abstract'][$this->_sections['abs']['index']]['img'] != ''): ?>
+    	<a href="<?php echo @SITE; ?>
+<?php echo $this->_tpl_vars['abstract'][$this->_sections['abs']['index']]['img']; ?>
+"><img src="<?php echo @SITE; ?>
+<?php echo $this->_tpl_vars['abstract'][$this->_sections['abs']['index']]['img']; ?>
+" /></a>
+    	<?php endif; ?>
+    	<p class="imginfo"><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['abstract'][$this->_sections['abs']['index']]['imginfo'])) ? $this->_run_mod_handler('replace', true, $_tmp, ' ', "&nbsp;") : smarty_modifier_replace($_tmp, ' ', "&nbsp;")))) ? $this->_run_mod_handler('nl2br', true, $_tmp) : smarty_modifier_nl2br($_tmp)); ?>
+</p>
+    	<?php endfor; endif; ?>
+    </div>
+    <div class="wj_m"><p><?php echo $this->_tpl_vars['questionnaire']['description']; ?>
+</p></div>
+    <?php unset($this->_sections['que']);
+$this->_sections['que']['name'] = 'que';
+$this->_sections['que']['loop'] = is_array($_loop=$this->_tpl_vars['question']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['que']['show'] = true;
+$this->_sections['que']['max'] = $this->_sections['que']['loop'];
+$this->_sections['que']['step'] = 1;
+$this->_sections['que']['start'] = $this->_sections['que']['step'] > 0 ? 0 : $this->_sections['que']['loop']-1;
+if ($this->_sections['que']['show']) {
+    $this->_sections['que']['total'] = $this->_sections['que']['loop'];
+    if ($this->_sections['que']['total'] == 0)
+        $this->_sections['que']['show'] = false;
+} else
+    $this->_sections['que']['total'] = 0;
+if ($this->_sections['que']['show']):
+
+            for ($this->_sections['que']['index'] = $this->_sections['que']['start'], $this->_sections['que']['iteration'] = 1;
+                 $this->_sections['que']['iteration'] <= $this->_sections['que']['total'];
+                 $this->_sections['que']['index'] += $this->_sections['que']['step'], $this->_sections['que']['iteration']++):
+$this->_sections['que']['rownum'] = $this->_sections['que']['iteration'];
+$this->_sections['que']['index_prev'] = $this->_sections['que']['index'] - $this->_sections['que']['step'];
+$this->_sections['que']['index_next'] = $this->_sections['que']['index'] + $this->_sections['que']['step'];
+$this->_sections['que']['first']      = ($this->_sections['que']['iteration'] == 1);
+$this->_sections['que']['last']       = ($this->_sections['que']['iteration'] == $this->_sections['que']['total']);
+?>
+    <div class="wj_m">
+    	<p>Q<?php echo $this->_sections['que']['index']+1; ?>
+. <?php echo $this->_tpl_vars['question'][$this->_sections['que']['index']]['title']; ?>
+
+    		<!-- <?php if ($this->_tpl_vars['question'][$this->_sections['que']['index']]['type'] == 1): ?>[单选题]<?php elseif ($this->_tpl_vars['question'][$this->_sections['que']['index']]['type'] == 2): ?>[多选题]<?php elseif ($this->_tpl_vars['question'][$this->_sections['que']['index']]['type'] == 3): ?>[开放性问题]<?php endif; ?> -->
+    		<input type="hidden" name="questionid<?php echo $this->_sections['que']['index']; ?>
+" value="<?php echo $this->_tpl_vars['question'][$this->_sections['que']['index']]['id']; ?>
+"  />
+    	</p>
+        <div class="wj_mm">
+        <input class="qetype" type="hidden" value="<?php echo $this->_tpl_vars['question'][$this->_sections['que']['index']]['type']; ?>
+" />
+        	<?php unset($this->_sections['opt']);
+$this->_sections['opt']['name'] = 'opt';
+$this->_sections['opt']['loop'] = is_array($_loop=$this->_tpl_vars['question'][$this->_sections['que']['index']]['option']) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$this->_sections['opt']['show'] = true;
+$this->_sections['opt']['max'] = $this->_sections['opt']['loop'];
+$this->_sections['opt']['step'] = 1;
+$this->_sections['opt']['start'] = $this->_sections['opt']['step'] > 0 ? 0 : $this->_sections['opt']['loop']-1;
+if ($this->_sections['opt']['show']) {
+    $this->_sections['opt']['total'] = $this->_sections['opt']['loop'];
+    if ($this->_sections['opt']['total'] == 0)
+        $this->_sections['opt']['show'] = false;
+} else
+    $this->_sections['opt']['total'] = 0;
+if ($this->_sections['opt']['show']):
+
+            for ($this->_sections['opt']['index'] = $this->_sections['opt']['start'], $this->_sections['opt']['iteration'] = 1;
+                 $this->_sections['opt']['iteration'] <= $this->_sections['opt']['total'];
+                 $this->_sections['opt']['index'] += $this->_sections['opt']['step'], $this->_sections['opt']['iteration']++):
+$this->_sections['opt']['rownum'] = $this->_sections['opt']['iteration'];
+$this->_sections['opt']['index_prev'] = $this->_sections['opt']['index'] - $this->_sections['opt']['step'];
+$this->_sections['opt']['index_next'] = $this->_sections['opt']['index'] + $this->_sections['opt']['step'];
+$this->_sections['opt']['first']      = ($this->_sections['opt']['iteration'] == 1);
+$this->_sections['opt']['last']       = ($this->_sections['opt']['iteration'] == $this->_sections['opt']['total']);
+?>
+        		<label><?php if ($this->_tpl_vars['question'][$this->_sections['que']['index']]['type'] == '1'): ?><input type="radio" name="check<?php echo $this->_sections['que']['index']; ?>
+" value="<?php echo $this->_tpl_vars['question'][$this->_sections['que']['index']]['option'][$this->_sections['opt']['index']]['id']; ?>
+">
+        		<?php elseif ($this->_tpl_vars['question'][$this->_sections['que']['index']]['type'] == '2'): ?><input type="checkbox" name="check<?php echo $this->_sections['que']['index']; ?>
+[]" value="<?php echo $this->_tpl_vars['question'][$this->_sections['que']['index']]['option'][$this->_sections['opt']['index']]['id']; ?>
+">
+        		<?php elseif ($this->_tpl_vars['question'][$this->_sections['que']['index']]['type'] == '3'): ?><input type="radio" name="check<?php echo $this->_sections['que']['index']; ?>
+" value="<?php echo $this->_tpl_vars['question'][$this->_sections['que']['index']]['option'][$this->_sections['opt']['index']]['id']; ?>
+">
+        		<?php elseif ($this->_tpl_vars['question'][$this->_sections['que']['index']]['type'] == '4'): ?><input type="hidden" name="check<?php echo $this->_sections['que']['index']; ?>
+" value="<?php echo $this->_tpl_vars['question'][$this->_sections['que']['index']]['option'][$this->_sections['opt']['index']]['id']; ?>
+">
+        		<?php endif; ?>
+        			<?php echo ((is_array($_tmp=$this->_tpl_vars['question'][$this->_sections['que']['index']]['option'][$this->_sections['opt']['index']]['content'])) ? $this->_run_mod_handler('replace', true, $_tmp, '@text', '<br></label><input type="text" class="anstext" value="" style="font-size:16px;width:80%;height:30px;" /><br>') : smarty_modifier_replace($_tmp, '@text', '<br></label><input type="text" class="anstext" value="" style="font-size:16px;width:80%;height:30px;" /><br>')); ?>
+<input type="hidden" name="anscontent<?php echo $this->_tpl_vars['question'][$this->_sections['que']['index']]['option'][$this->_sections['opt']['index']]['id']; ?>
+" value="" /></label>
+        	<?php endfor; endif; ?>
+        </div>
+    </div>
+    <?php endfor; endif; ?>
+    
+    <div class="wj_btn">
+    	<input class="wj_in_btn" type="submit" id="submit" value="确定">
+    </div>
+    </form>
+    <div class="wj_t"></div>
+    
+    <p><a href="<?php echo @SITE; ?>
+<?php echo $this->_plugins['function']['url'][0][0]->_pi_func_url(array('controller' => 'Answer','action' => 'Index','qid' => $this->_tpl_vars['questionnaire']['id']), $this);?>
+" id="copyQurl">复制问卷链接</a></p>
+    <div class="wj_m">
+    	<p><a href="http://weixin.qq.com/r/fUO2rsHEh5z4rYXN9xZv" target="_blank">【点击这里】</a>关注 <a href="http://weixin.qq.com/r/fUO2rsHEh5z4rYXN9xZv" target="_blank"><font color="red">“<strong>Planbook</strong>”</font></a> <strong><span class="weixin">微信</span>  &nbsp;服务号</strong></p>
+	</div>
+    <div class="wj_m">
+    	<p><img src="<?php echo @SITE; ?>
+resource/images/planbook.jpg" width="100%" /></p>
+    </div>
+</div>
+
+</body>
+</html>

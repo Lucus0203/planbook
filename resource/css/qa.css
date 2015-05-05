@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* 网站通用 */
+@charset "utf-8";
+
+body{margin:0px; padding:0px; font:16px/1.5 'Microsoft Yahei','helvetica','arial','Verdana'; color:#333; width:100%; margin:0 auto; min-width:320px; background:#ffffff;}
+
+p{padding:0px; margin:0px;}
+
+a{text-decoration:none;color:#666;}
+a:hover{text-decoration:none;}
+ul,li{list-style:none;}
+
+.wj_box{margin:0 20px;}
+.wj_t {border-bottom:2px solid #3c9ccf; padding-bottom:50px;}
+.wj_t h1{width:100%; font-size:18px; margin-top:20px; padding-bottom:10px;}
+.wj_t h4{font-size:14px;}
+.wj_t p{margin-top:20px;padding-bottom:10px;font-size:14px;}
+.wj_t img{width:100%;}
+.wj_t p.imginfo{margin-top:10px;font-style:italic;}
+.wj_t p span.keyword{font-weight:bold;}
+.wj_m{margin:0 10px 25px 10px;}
+.wj_m p{font-size:14px; padding-top:10px; padding-bottom:5px;}
+.wj_m .wj_mm{padding-left:0}
+.wj_m .wj_mm label{line-height:25px;width:100%;display:block;}
+.wj_m .wj_mm input{vertical-align:-2px; padding-right:5px;}
+
+.wj_btn{margin-left:10px; margin-top:30px; text-align:center;}
+.wj_btn .wj_in_btn{border:1px solid #3c9ccf; border-radius:5px; -webkit-border-radius:5px; background:#3c9ccf; padding:3px 15px 3px 15px; color:#ffffff; font:18px/1.5 'Microsoft Yahei','helvetica','arial','Verdana';}
+.wj_box span.weixin{font-style:italic;}
+
+table.optionTab th{background: #eee;}
+table.optionTab{margin:0 auto;background-color: #ccc;}
+table.optionTab td{background:#ffffff;text-align:left;line-height:18px;padding:5px;}
+
+
+.hd_t2{width:97%; margin:0 auto; text-align:right; font-size:14px; margin-top:25px;}
+.hd_t2 span{font-weight:bold; color:#e10030;}
+.hd_t2 a{padding-left:10px;}
