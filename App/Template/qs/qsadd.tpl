@@ -134,6 +134,14 @@
                     <td><input type="text" class="qeProbability" value="1">无前置条件时有效</td>
                 </tr>
                 <tr>
+                	<td class="td_right">答案上限</td>
+                    <td><input type="text" class="qeAslimit" value="1">多选题有效</td>
+                </tr>
+                <tr>
+                	<td class="td_right">触发结束</td>
+                    <td><label><input type="radio" class="qeFlagOver" name="flag_over" value="2" checked >否</label><label><input type="radio" class="qeFlagOver" name="flag_over" value="1" >是</label></td>
+                </tr>
+                <tr>
                     <td colspan="2" class="tck_btn"><input id="addCondition" type="button" value="添加条件" /><input id="subCondition" type="button" value="确定"><input type="button" id="removeQe" value="移除"></td>
                 </tr>
             </table>

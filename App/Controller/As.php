@@ -67,7 +67,7 @@ class Controller_As extends FLEA_Controller_Action {
 		$qesall=$qes=$qe=array();
 		$step='';
 		foreach ($path as $p){
-			if($step!=$p['step']){
+			if($step!=$p['step']&&($p['flag_over']==2||$p['step']==$questionnaire['step_num']) ){//默认随机问题排除触发结束
 				if(count($qe)>0){$qes[]=$qe;}
 				$qe=array();
 			}
@@ -179,7 +179,7 @@ class Controller_As extends FLEA_Controller_Action {
 	
 	//完成问卷
 	function actionComplete(){
-		$this->_common->display('as/complete.tpl',array('msg'=>'Thank you for your help!'));
+		$this->_common->display('as/complete.tpl',array('msg'=>'感谢您的提交!'));
 	}
 	
 	function actionPreview(){

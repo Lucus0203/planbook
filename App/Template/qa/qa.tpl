@@ -62,10 +62,11 @@
     
     <p><a href="{$smarty.const.SITE}{url controller=Answer action=Index qid=$questionnaire.id}" id="copyQurl">复制问卷链接</a></p>
     <div class="wj_m">
-    	<p><a href="http://weixin.qq.com/r/fUO2rsHEh5z4rYXN9xZv" target="_blank">【点击这里】</a>关注 <a href="http://weixin.qq.com/r/fUO2rsHEh5z4rYXN9xZv" target="_blank"><font color="red">“<strong>Planbook</strong>”</font></a> <strong><span class="weixin">微信</span>  &nbsp;服务号</strong></p>
+    	<p>1.长按二维码，自动识别关注 <font color="red">“<strong>繁昌县规划局</strong>”</font> <strong><span class="weixin">微信</span>  &nbsp;服务号</strong></p>
+    	<p>2.在<font color="red">微信公众号</font>中，搜索<font color="red">“<strong>繁昌县规划局</strong>”</font>关注。</p>
 	</div>
     <div class="wj_m">
-    	<p><img src="{$smarty.const.SITE}resource/images/planbook.jpg" width="100%" /></p>
+    	<p><img src="{$smarty.const.SITE}resource/images/fanchanglogo.jpg" width="100%" /></p>
     </div>
 </div>
 

@@ -27,6 +27,7 @@ $(function(){
 			qeobj.find('input[name^=anscontent]').val(str.slice(0,-1));
 		}
 	});
+	//选中高亮切换
 	$('input[type=radio],input[type=checkbox]').change(function(){
 		$('input[type=radio],input[type=checkbox]').each(function(i){
 			if($(this).attr('checked')){

@@ -90,11 +90,13 @@ class Controller_Qs extends FLEA_Controller_Action {
 			$qeids=$this->_common->filter($_POST['qeid']);
 			$probability=$this->_common->filter($_POST['probability']);
 			$hascon=$this->_common->filter($_POST['hascon']);
+			$aslimit=$this->_common->filter($_POST['aslimit']);
+			$flag_over=$this->_common->filter($_POST['flag_over']);
 			$num=1;
 			$csp=$step[0];
 			foreach ($step as $sk=>$sp){
 				$prov=($probability[$sk]=='')?1:$probability[$sk];
-				$qepath=array('qs_id'=>$qs_id,'step'=>$sp,'qe_id'=>$qeids[$sk],'num'=>$num,'probability'=>$prov,'hascon'=>$hascon[$sk]);
+				$qepath=array('qs_id'=>$qs_id,'step'=>$sp,'qe_id'=>$qeids[$sk],'num'=>$num,'probability'=>$prov,'hascon'=>$hascon[$sk],'aslimit'=>$aslimit[$sk],'flag_over'=>$flag_over[$sk]);
 				if($csp!=$sp){
 					$num=1;
 				}else{
@@ -104,6 +106,9 @@ class Controller_Qs extends FLEA_Controller_Action {
 				$this->_qepath->create($qepath);
 				
 			}
+			$stepnumupdate=array('id'=>$qs_id,'step_num'=>$csp);
+			$this->_qs->update($stepnumupdate);//更新最大步骤数
+			
 			$prevqe=$this->_common->filter($_POST['consprevqe']);
 			$prevop=$this->_common->filter($_POST['consprevop']);
 			$consqeid=$this->_common->filter($_POST['consqeid']);
@@ -281,11 +286,13 @@ class Controller_Qs extends FLEA_Controller_Action {
 			$qeids=$this->_common->filter($_POST['qeid']);
 			$probability=$this->_common->filter($_POST['probability']);
 			$hascon=$this->_common->filter($_POST['hascon']);
+			$aslimit=$this->_common->filter($_POST['aslimit']);
+			$flag_over=$this->_common->filter($_POST['flag_over']);
 			$num=1;
 			$csp=$step[0];
 			foreach ($step as $sk=>$sp){
 				$prov=($probability[$sk]=='')?1:$probability[$sk];
-				$qepath=array('qs_id'=>$qs_id,'step'=>$sp,'qe_id'=>$qeids[$sk],'num'=>$num,'probability'=>$prov,'hascon'=>$hascon[$sk]);
+				$qepath=array('qs_id'=>$qs_id,'step'=>$sp,'qe_id'=>$qeids[$sk],'num'=>$num,'probability'=>$prov,'hascon'=>$hascon[$sk],'aslimit'=>$aslimit[$sk],'flag_over'=>$flag_over[$sk]);
 				if($csp!=$sp){
 					$num=1;
 				}else{
@@ -295,6 +302,10 @@ class Controller_Qs extends FLEA_Controller_Action {
 				$this->_qepath->create($qepath);
 			
 			}
+			
+			$stepnumupdate=array('id'=>$qs_id,'step_num'=>$csp);
+			$this->_qs->update($stepnumupdate);//更新最大步骤数
+			
 			$prevqe=$this->_common->filter($_POST['consprevqe']);
 			$prevop=$this->_common->filter($_POST['consprevop']);
 			$consqeid=$this->_common->filter($_POST['consqeid']);

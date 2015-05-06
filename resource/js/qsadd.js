@@ -21,7 +21,8 @@ $(function(){
 		var no=$(this).find('.no').val();
 		var qeid=$(this).find('.qeid').val();
 		var qetitle=$(this).find('.qetitle').val();
-		$('.tk_lmon ul').append($(this).clone().addClass('tooltip').attr('title',qetitle).html('<span>R</span><p>'+no+'</p><input type="hidden" name="step[]" class="step" value="'+step+'" /><input type="hidden" name="qeid[]" class="qeid" value="'+qeid+'" /><input type="hidden" name="probability[]" class="probability" value="1" /><input type="hidden" value="2" class="hascon" name="hascon[]" /><input type="hidden" class="qetitle" value="'+qetitle+'" />'));
+		//添加路径隐藏属性
+		$('.tk_lmon ul').append($(this).clone().addClass('tooltip').attr('title',qetitle).html('<span>R</span><p>'+no+'</p><input type="hidden" name="step[]" class="step" value="'+step+'" /><input type="hidden" name="qeid[]" class="qeid" value="'+qeid+'" /><input type="hidden" name="probability[]" class="probability" value="1" /><input type="hidden" value="2" class="hascon" name="hascon[]" /><input type="hidden" value="1" class="aslimit" name="aslimit[]" /><input type="hidden" value="2" class="flag_over" name="flag_over[]" /><input type="hidden" class="qetitle" value="'+qetitle+'" />'));
 		$('.tooltip').tooltipster();
 	});
 	//移除问题
@@ -39,6 +40,8 @@ $(function(){
 		var qeid=$(this).find('.qeid').val();
 		var step=$(this).find('.step').val();
 		var probability=$(this).find('.probability').val();
+		var aslimit=$(this).find('.aslimit').val();
+		var flag_over=$(this).find('.flag_over').val();
 		var beftk=step;
 		var beftklmqe=$('.tk_lm:lt('+beftk+')').find('li');
 		$.ajax({
@@ -55,6 +58,15 @@ $(function(){
 				}
 				$('.qeBeforeCon').html('');
 				$('.qeProbability').val(probability);
+				$('.qeAslimit').val(aslimit);
+				if(flag_over==1){
+					$('.qeFlagOver').eq(0).removeAttr('checked');
+					$('.qeFlagOver').eq(1).attr('checked','checked');
+				}else{
+					$('.qeFlagOver').eq(0).attr('checked','checked');
+					$('.qeFlagOver').eq(1).removeAttr('checked');
+				}
+				
 				//前置条件
 				if(step==0){
 					$('.qeBeforeCon').text('无');
@@ -152,6 +164,8 @@ $(function(){
 	$('#subCondition').click(function(){
 		//问题出现概率
 		$('.tk_lmon li.selected input.probability').val($('.qeProbability').val());
+		$('.tk_lmon li.selected input.aslimit').val($('.qeAslimit').val());
+		$('.tk_lmon li.selected input.flag_over').val($('.qeFlagOver:checked').val());
 		
 		$('.tk_lmon li.selected input[name^=consprevqe]').remove();
 		$('.tk_lmon li.selected input[name^=consprevop]').remove();

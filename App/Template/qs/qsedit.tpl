@@ -73,6 +73,8 @@
 			                           			<input type="hidden" value="{$qes[sec][tp].question.id}" class="qeid" name="qeid[]">
 			                           			<input type="hidden" value="{$qes[sec][tp].probability}" class="probability" name="probability[]" />
 			                           			<input type="hidden" value="{$qes[sec][tp].hascon}" class="hascon" name="hascon[]" />
+			                           			<input type="hidden" value="{$qes[sec][tp].aslimit}" class="aslimit" name="aslimit[]" />
+			                           			<input type="hidden" value="{$qes[sec][tp].flag_over}" class="flag_over" name="flag_over[]" />
 			                           			<input type="hidden" value="{$qes[sec][tp].question.title}" class="qetitle">
 			                           			{section name=qcon loop=$qes[sec][tp].qecon}
 			                           			<input type="hidden" value="{$qes[sec][tp].qecon[qcon].prevqe_id}" name="consprevqe[]">
@@ -151,6 +153,14 @@
                 <tr>
                 	<td class="td_right">概率系数(整数)</td>
                     <td><input type="text" class="qeProbability" value="1">无前置条件时有效</td>
+                </tr>
+                <tr>
+                	<td class="td_right">答案上限</td>
+                    <td><input type="text" class="qeAslimit" value="1">多选题有效</td>
+                </tr>
+                <tr>
+                	<td class="td_right">触发结束</td>
+                    <td><label><input type="radio" class="qeFlagOver" name="flag_over" value="2" checked >否</label><label><input type="radio" class="qeFlagOver" name="flag_over" value="1" >是</label></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="tck_btn"><input id="addCondition" type="button" value="添加条件" /><input id="subCondition" type="button" value="确定"><input type="button" id="removeQe" value="移除"></td>
