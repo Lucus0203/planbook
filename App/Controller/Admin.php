@@ -55,4 +55,39 @@ class Controller_Admin extends FLEA_Controller_Action {
 		$this->_common->show ( array ('main' => 'admin/change_pass.tpl','msg'=>$msg) );
 	}
 	
+	//管理问卷公共信息
+	function actionCommonInfo(){
+		$msg='';
+		$act=isset($_POST['act'])?$this->_common->filter($_POST['act']):'';
+		if($act=='update'){
+			$admin = $this->_admin->findByField('id',$this->_adminid);
+			$data=$this->_common->filter($_POST);
+			$info['id']=$this->_adminid;
+			$info['complete_msg']=$data['complete_msg'];
+			$info['sign_text']=$data['sign_text'];
+			//签名图片
+			$Upload= & get_singleton ( "Service_UpLoad" );
+			$folder="resource/upload/signimg/";
+			if (! file_exists ( $folder )) {
+				mkdir ( $folder, 0777 );
+			}
+			$Upload->setDir($folder.$admin['adm_name']."/");
+			$oldimg=$admin['sign_img'];
+			$img=$Upload->upload('file');
+			if($img['status']==1){//如果有上传图片则更新
+				$info['sign_img']=$img['file_path'];
+				if(file_exists($oldimg)){
+					unlink($oldimg);
+				}
+			}else{
+				$info['sign_img']=$oldimg;
+			}
+
+			$this->_admin->update($info);
+			$msg='更新成功';
+		}
+		$info=$this->_admin->findByField('id',$this->_adminid);
+		$this->_common->show ( array ('main' => 'admin/common_info.tpl','msg'=>$msg,'admin'=>$info) );
+	}
+	
 }

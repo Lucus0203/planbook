@@ -55,7 +55,8 @@ class Controller_Answer extends FLEA_Controller_Action {
 		foreach ($question as $k=>$q){
 			$question[$k]['option']=$this->_option->findAll(array('question_id'=>$q['id']),'id asc');
 		}
-		$this->_common->display('qa/qa.tpl',array ('questionnaire'=>$questionnaire,'question'=>$question,'abstract'=>$abstract) );
+		$signinfo=$this->_admin->findByField('adm_name','admin');
+		$this->_common->display('qa/qa.tpl',array ('questionnaire'=>$questionnaire,'question'=>$question,'abstract'=>$abstract,'signinfo'=>$signinfo) );
 	}
 	
 	//提交问卷
@@ -107,7 +108,8 @@ class Controller_Answer extends FLEA_Controller_Action {
 	
 	//完成问卷
 	function actionComplete(){
-		$this->_common->display('qa/complete.tpl',array('msg'=>'感谢您的提交!'));
+		$signinfo=$this->_admin->findByField('adm_name','admin');
+		$this->_common->display('qa/complete.tpl',array('msg'=>'感谢您的提交!','signinfo'=>$signinfo));
 	}
 	
 	function actionPreview(){

@@ -136,6 +136,7 @@ class Controller_Questionnaire extends FLEA_Controller_Action {
 					$file_path=$img['file_path'];
 				}
 				$abstract['questionnaire_id']=$questionnaire_id;
+				$abstract['title']=$_POST['abstract'.$numi]['title'];
 				$abstract['content']=$_POST['abstract'.$numi]['content'];
 				$abstract['imginfo']=$_POST['abstract'.$numi]['imginfo'];
 				$abstract['img']=$file_path;
@@ -220,6 +221,7 @@ class Controller_Questionnaire extends FLEA_Controller_Action {
 					$file_path=$oldimg;
 				}
 				$abstract['questionnaire_id']=$questionnaire_id;
+				$abstract['title']=$_POST['abstract'.$numi]['title'];
 				$abstract['content']=$_POST['abstract'.$numi]['content'];
 				$abstract['imginfo']=$_POST['abstract'.$numi]['imginfo'];
 				$abstract['img']=$file_path;

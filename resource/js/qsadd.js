@@ -3,7 +3,7 @@ $(function(){
 	$('#addAbstract').click(function(){
 		var num=$('#abstractnum').val();
 		++num;
-		$('#addAbsTr').before('<tr><td style="text-align:center;">摘要'+num+'</td><td><textarea name="abstract'+num+'[content]" style="width:700px;height:150px;"></textarea></td></tr>'+
+		$('#addAbsTr').before('<tr><td style="text-align:center;"><input name="abstract'+num+'[title]" type="text" value="摘要'+num+'" style="width:50px;" /></td><td><textarea name="abstract'+num+'[content]" style="width:700px;height:150px;"></textarea></td></tr>'+
             '<tr><td style="text-align:center;">图片'+num+'</td><td><input name="abstractimg'+num+'" type="file" style="width:700px;"></td></tr>'+
             '<tr><td style="text-align:center;">图片信息'+num+'</td><td><textarea name="abstract'+num+'[imginfo]" value="" style="width:700px;height:50px;"></textarea></td></tr>');
 		$('#abstractnum').val(num);

@@ -1,4 +1,4 @@
-<script type="text/javascript" src="{$smarty.const.SITE}resource/js/add.js"></script>
+<script type="text/javascript" src="{$smarty.const.SITE}resource/js/add.js?0507"></script>
 <td valign="top" align="center">
  	<div class="main_ta_box">
          <div class="hd_t">发起演示文稿</div>
@@ -40,15 +40,19 @@
                  <td><input id="questionnaire_title" name="data[title]" type="text" value="" style="width:700px;"></td>
              </tr>
              <tr>
-                 <td style="text-align:center;">作者</td>
+                 <td style="text-align:center;">档案号</td>
+                 <td><input name="data[file_no]" type="text" value="" style="width:700px;"></td>
+             </tr>
+             <tr>
+                 <td style="text-align:center;"><input name="data[author_subtitle]" type="text" value="作者" style="width:50px;padding:0;" /></td>
                  <td><textarea id="author" name="data[author]" style="width:700px;height:50px;"></textarea></td>
              </tr>
              <tr>
-                 <td style="text-align:center;">关键词</td>
+                 <td style="text-align:center;"><input name="data[keywords_subtitle]" type="text" value="关键词" style="width:50px;padding:0;" /></td>
                  <td><textarea id="keywords" name="data[keywords]" style="width:700px;height:50px;"></textarea></td>
              </tr>
              <tr>
-                 <td style="text-align:center;">摘要1</td>
+                 <td style="text-align:center;"><input name="abstract1[title]" type="text" value="摘要1" style="width:50px;padding:0;" /></td>
                  <td><textarea name="abstract1[content]" style="width:700px;height:150px;"></textarea></td>
              </tr>
              <tr>

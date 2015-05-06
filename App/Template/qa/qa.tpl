@@ -21,10 +21,10 @@
 	<div class="wj_t">
 		<h1>{$questionnaire.title}</h1>
     	{if $questionnaire.author neq ''}<p>{$questionnaire.author|replace:" ":"&nbsp;"|nl2br}</p>{/if}
-    	{if $questionnaire.keywords neq ''}<p><span class="keyword">关键词:</span>{$questionnaire.keywords|replace:" ":"&nbsp;"|nl2br}</p>{/if}
+    	{if $questionnaire.keywords neq ''}<p><span class="keyword">{$questionnaire.keywords_subtitle}:</span>{$questionnaire.keywords|replace:" ":"&nbsp;"|nl2br}</p>{/if}
     	{if $abstract[0].content neq ''}
-	    	<h4>摘要:</h4>
 	    	{section name=abs loop=$abstract}
+	    	<h4>{$abstract[abs].title}:</h4>
 	    	<p>{$abstract[abs].content|replace:" ":"&nbsp;"|nl2br}</p>
 	    	{if $abstract[abs].img neq ''}
 	    	<a href="{$smarty.const.SITE}{$abstract[abs].img}"><img src="{$smarty.const.SITE}{$abstract[abs].img}" /></a>
@@ -59,14 +59,21 @@
     </div>
     </form>
     <div class="wj_t"></div>
-    
-    <p><a href="{$smarty.const.SITE}{url controller=Answer action=Index qid=$questionnaire.id}" id="copyQurl">复制问卷链接</a></p>
+    {if $signinfo.sign_text neq ''}
+    	<p>{$signinfo.sign_text}</p>
+    {else}
+	    <p><a href="{$smarty.const.SITE}{url controller=Answer action=Index qid=$questionnaire.id}" id="copyQurl">复制问卷链接</a></p>
+	    <div class="wj_m">
+	    	<p>1.长按二维码，自动识别关注 <font color="red">“<strong>繁昌县规划局</strong>”</font> <strong><span class="weixin">微信</span>  &nbsp;服务号</strong></p>
+	    	<p>2.在<font color="red">微信公众号</font>中，搜索<font color="red">“<strong>繁昌县规划局</strong>”</font>关注。</p>
+		</div>
+    {/if}
     <div class="wj_m">
-    	<p>1.长按二维码，自动识别关注 <font color="red">“<strong>繁昌县规划局</strong>”</font> <strong><span class="weixin">微信</span>  &nbsp;服务号</strong></p>
-    	<p>2.在<font color="red">微信公众号</font>中，搜索<font color="red">“<strong>繁昌县规划局</strong>”</font>关注。</p>
-	</div>
-    <div class="wj_m">
-    	<p><img src="{$smarty.const.SITE}resource/images/fanchanglogo.jpg" width="100%" /></p>
+    	{if $signinfo.sign_img neq ''}
+    	<img src="{$smarty.const.SITE}{$signinfo.sign_img}" width="100%" />
+    	{else}
+    	<p><img src="{$smarty.const.SITE}resource/images/planbook.jpg" width="100%" /></p>
+    	{/if}
     </div>
 </div>
 

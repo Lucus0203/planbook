@@ -40,7 +40,7 @@ $(function(){
 		if(!$(this).find('input:eq(0)').attr('checked')){
 			//最多选择几项
 			var numlimit=$(this).parent().find('.aslimit').val();
-			if($(this).parent().find('input:checked').length>=numlimit){
+			if($(this).find('input:eq(0)').attr('type')=='checkbox'&&$(this).parent().find('input:checked').length>=numlimit){
 				alert('本题最多选择'+numlimit+'项答案');
 				return false;
 			}

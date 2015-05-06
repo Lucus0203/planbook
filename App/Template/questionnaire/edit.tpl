@@ -1,4 +1,4 @@
-<script type="text/javascript" src="{$smarty.const.SITE}resource/js/add.js"></script>
+<script type="text/javascript" src="{$smarty.const.SITE}resource/js/add.js?0507"></script>
 <td valign="top" align="center">
  	<div class="main_ta_box">
          <div class="hd_t">修改问卷</div>
@@ -22,16 +22,20 @@
                  <td><input id="questionnaire_title" name="data[title]" type="text" value="{$questionnaire.title}" style="width:700px;"></td>
              </tr>
              <tr>
-                 <td style="text-align:center;">作者</td>
+                 <td style="text-align:center;">档案号</td>
+                 <td><input name="data[file_no]" type="text" value="{$questionnaire.file_no}" style="width:700px;"></td>
+             </tr>
+             <tr>
+                 <td style="text-align:center;"><input name="data[author_subtitle]" type="text" value="{$questionnaire.author_subtitle}" style="width:50px;padding:0;" /></td>
                  <td><textarea id="author" name="data[author]" style="width:700px;height:50px;">{$questionnaire.author}</textarea></td>
              </tr>
              <tr>
-                 <td style="text-align:center;">关键词</td>
+                 <td style="text-align:center;"><input name="data[keywords_subtitle]" type="text" value="{$questionnaire.keywords_subtitle}" style="width:50px;padding:0;" /></td>
                  <td><textarea id="keywords" name="data[keywords]" style="width:700px;height:50px;">{$questionnaire.keywords}</textarea></td>
              </tr>
              {section name=sec loop=$abstract}
              <tr>
-                 <td style="text-align:center;">摘要{$smarty.section.sec.index+1}</td>
+                 <td style="text-align:center;"><input name="abstract{$smarty.section.sec.index+1}[title]" type="text" value="{$abstract[sec].title}" style="width:50px;padding:0;" /></td>
                  <td><textarea name="abstract{$smarty.section.sec.index+1}[content]" style="width:700px;height:150px;">{$abstract[sec].content}</textarea></td>
              </tr>
              <tr>

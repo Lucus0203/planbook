@@ -80,6 +80,7 @@ class Controller_Qs extends FLEA_Controller_Action {
 					$file_path=$img['file_path'];
 				}
 				$abstract['qs_id']=$qs_id;
+				$abstract['title']=$_POST['abstract'.$numi]['title'];
 				$abstract['content']=$_POST['abstract'.$numi]['content'];
 				$abstract['imginfo']=$_POST['abstract'.$numi]['imginfo'];
 				$abstract['img']=$file_path;
@@ -273,6 +274,7 @@ class Controller_Qs extends FLEA_Controller_Action {
 					$file_path=$oldimg;
 				}
 				$abstract['qs_id']=$qs_id;
+				$abstract['title']=$_POST['abstract'.$numi]['title'];
 				$abstract['content']=$_POST['abstract'.$numi]['content'];
 				$abstract['imginfo']=$_POST['abstract'.$numi]['imginfo'];
 				$abstract['img']=$file_path;

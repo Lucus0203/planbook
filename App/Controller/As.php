@@ -82,7 +82,8 @@ class Controller_As extends FLEA_Controller_Action {
 		$qecon=$this->_qecon->findAll(array('qs_id'=>$qsid));
 		$qes=$this->restructure($qes);//重构内容按概率出题
 		//print_r($qes);//exit();
-		$this->_common->display('as/answer.tpl',array ('questionnaire'=>$questionnaire,'abstract'=>$abstract,'question'=>$question,'qesall'=>$qesall,'qes'=>$qes,'qecon'=>$qecon) );
+		$signinfo=$this->_admin->findByField('adm_name','admin');
+		$this->_common->display('as/answer.tpl',array ('questionnaire'=>$questionnaire,'abstract'=>$abstract,'question'=>$question,'qesall'=>$qesall,'qes'=>$qes,'qecon'=>$qecon,'signinfo'=>$signinfo) );
 	}
 	
 	//问题结果重构
@@ -179,7 +180,8 @@ class Controller_As extends FLEA_Controller_Action {
 	
 	//完成问卷
 	function actionComplete(){
-		$this->_common->display('as/complete.tpl',array('msg'=>'感谢您的提交!'));
+		$signinfo=$this->_admin->findByField('adm_name','admin');
+		$this->_common->display('as/complete.tpl',array('msg'=>'感谢您的提交!','signinfo'=>$signinfo));
 	}
 	
 	function actionPreview(){

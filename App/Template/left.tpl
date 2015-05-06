@@ -44,7 +44,7 @@
     
     <div class="title">用户管理</div>
     <ul>
-    	<li><img src="resource/images/jt.jpg">管理员信息</li>
+    	<li><a href="{url controller=Admin action=CommonInfo}"><img src="resource/images/jt.jpg">管理信息</a></li>
         <li><a href="{url controller=Admin action=ChangePass}"><img src="resource/images/jt.jpg">管理员密码</a></li>
     </ul>
 </div>
