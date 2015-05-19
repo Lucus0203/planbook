@@ -16,10 +16,10 @@
 	<input type="hidden" name="questionnaire_unit" value="{$questionnaire.id}" />
 	<input type="hidden" id="time" name="time" value="0" />
 	<div class="wj_t">
-		<h1>{if $signinfo.complete_msg neq ''}{$signinfo.complete_msg}{else}{$msg}{/if}</h1>
+		<h1>{if $signinfo.complete_msg neq ''}{$signinfo.complete_msg|replace:" ":"&nbsp;"|nl2br}{else}{$msg}{/if}</h1>
     </div>
     {if $signinfo.sign_text neq ''}
-    	<p>{$signinfo.sign_text}</p>
+    	<p>{$signinfo.sign_text|replace:" ":"&nbsp;"|nl2br}</p>
     {else}
 	    <p><a href="{$smarty.const.SITE}{url controller=Answer action=Index qid=$questionnaire.id}" id="copyQurl">复制问卷链接</a></p>
 	    <div class="wj_m">

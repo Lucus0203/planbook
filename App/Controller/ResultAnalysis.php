@@ -264,9 +264,7 @@ class Controller_ResultAnalysis extends FLEA_Controller_Action {
 		}
 		//$objPHPExcel->getActiveSheet()->setTitle(iconv("gbk","UTF-8",'simple'));
 		$FileName = '答题统计表'.date('YmdHis').".xls"; // 输出EXCEL文件名
-		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'csv');
-		$objWriter->setUseBOM(true);
-		//ob_end_clean();
+		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 		header("Pragma: public");
 		header("Expires: 0");
 		header("Cache-Control:must-revalidate, post-check=0, pre-check=0");

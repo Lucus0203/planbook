@@ -2,9 +2,10 @@
 <td valign="top" align="center">
  	<div class="main_ta_box">
          <div class="hd_t">编辑题库</div>
+ 		 <p style="color:red;">{$msg}</p>
          <form action="" method="post" enctype="multipart/form-data">
          <input type="hidden" name="act" value="edit" />
-         <input type="hidden" name="qe[id]" value="{$qe.id}" />
+         <input id="qeid" type="hidden" name="qe[id]" value="{$qe.id}" />
          <table class="hd_del_ta" border="0" cellpadding="0" cellspacing="1" width="97%" align="center">
              <colgroup>
 				<col width="10%">
@@ -89,7 +90,7 @@
 			</tr>
 			<tr class="atr" id="singlebox">
 				<td style="text-align:center;">附件</td>
-				<td>{if $qe.file neq ''}<img src="{$qe.file}" width="200"  /><br>{/if}<input type="file" name="file"></td>
+				<td>{if $qe.file neq ''}<img src="{$qe.file}" width="200"  /><a href="{url controller=Qe action=QeDelFile qeid=$qe.id}">删除</a><br>{/if}<input type="file" name="file"></td>
 			</tr>
              <tr>
                  <td colspan="2" style="text-align:center;"><input type="submit" value=" 确认修改 "></td>

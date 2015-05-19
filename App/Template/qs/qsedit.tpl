@@ -2,6 +2,7 @@
 <td valign="top" align="center">
  	<div class="main_ta_box">
          <div class="hd_t">修改专业问卷调查</div>
+ 		 <p style="color:red;">{$msg}</p>
          <form action="" enctype="multipart/form-data" method="post" >
          <input type="hidden" name="act" value="edit" />
          <input type="hidden" class="selectedstep" value="0" />

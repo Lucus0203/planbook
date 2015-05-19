@@ -104,7 +104,7 @@
     <div class="wj_t"></div>
     
     {if $signinfo.sign_text neq ''}
-    	<p>{$signinfo.sign_text}</p>
+    	<p>{$signinfo.sign_text|replace:" ":"&nbsp;"|nl2br}</p>
     {else}
 	    <p><a href="{$smarty.const.SITE}{url controller=Answer action=Index qid=$questionnaire.id}" id="copyQurl">复制问卷链接</a></p>
 	    <div class="wj_m">

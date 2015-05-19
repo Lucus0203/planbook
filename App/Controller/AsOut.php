@@ -135,7 +135,7 @@ class Controller_AsOut extends FLEA_Controller_Action {
 		$question=$this->_qe->findBySql("select qe.*,path.qs_id from ".$prefix."qe qe left join ".$prefix."qepath path on path.qe_id = qe.id where path.qs_id=$qnnaid");
 		$conditions=array('qs_id'=>$qnnaid);
 		$answerlist=$this->_qs_answer->findAll($conditions,"id desc ");
-		
+		////////////////////////////////////excel
 		// 设置基本属性
 		$objPHPExcel = new PHPExcel();
 		// 创建多个工作薄

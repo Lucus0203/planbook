@@ -4,7 +4,7 @@
          <div class="hd_t">题库附件列表</div>
          <form action="" method="get">
          <input type="hidden" name="controller" value="Qe" />
-         <input type="hidden" name="action" value="QeList" />
+         <input type="hidden" name="action" value="QeFile" />
          <div class="hd_t1">查找题库<input class="cz_input" type="text" name="keyword" value="{$pageparm.keyword}"><input class="cz_btn" type="submit" value="查找"></div>
          </form>
          <table class="hd_ta" border="0" cellpadding="0" cellspacing="1" width="97%" align="center">

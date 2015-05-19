@@ -13,7 +13,7 @@ $desc=array (
 );
 $up=-87;
 $ut=58;
-$ttffile='E:\freehost\guihuayuan\web\App\Service\pdf/font/unifont/msyh.ttf';
+$ttffile='/Library/WebServer/Documents/qa/App/Service/pdf/font/unifont/msyh.ttf';
 $originalsize=15043584;
 $fontkey='microsoftyahei';
 ?>

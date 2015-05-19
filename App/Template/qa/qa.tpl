@@ -20,7 +20,7 @@
 	<input type="hidden" id="time" name="time" value="0" />
 	<div class="wj_t">
 		<h1>{$questionnaire.title}</h1>
-    	{if $questionnaire.author neq ''}<p>{$questionnaire.author|replace:" ":"&nbsp;"|nl2br}</p>{/if}
+    	{if $questionnaire.author neq ''}<p><span class="keyword">{$questionnaire.author_subtitle}:</span>{$questionnaire.author|replace:" ":"&nbsp;"|nl2br}</p>{/if}
     	{if $questionnaire.keywords neq ''}<p><span class="keyword">{$questionnaire.keywords_subtitle}:</span>{$questionnaire.keywords|replace:" ":"&nbsp;"|nl2br}</p>{/if}
     	{if $abstract[0].content neq ''}
 	    	{section name=abs loop=$abstract}
@@ -60,7 +60,7 @@
     </form>
     <div class="wj_t"></div>
     {if $signinfo.sign_text neq ''}
-    	<p>{$signinfo.sign_text}</p>
+    	<p>{$signinfo.sign_text|replace:" ":"&nbsp;"|nl2br}</p>
     {else}
 	    <p><a href="{$smarty.const.SITE}{url controller=Answer action=Index qid=$questionnaire.id}" id="copyQurl">复制问卷链接</a></p>
 	    <div class="wj_m">

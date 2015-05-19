@@ -146,6 +146,7 @@ class Controller_Qe extends FLEA_Controller_Action {
 	function actionQeEdit(){
 		$act=isset ( $_POST ['act'] ) ? $_POST ['act'] : '';
 		$id=isset ( $_GET ['qeid'] ) ? $this->_common->filter($_GET ['qeid']) : '';
+		$msg='';
 		if($act=='edit'){
 			//创建题库
 			$qe=$this->_common->filter($_POST['qe']);
@@ -177,14 +178,13 @@ class Controller_Qe extends FLEA_Controller_Action {
 					}
 				}
 			}
-			$url=url('Qe','QeList');
-			redirect($url);
+			$msg='修改成功!';
 		}
 		$qe=$this->_qe->findByField('id',$id);
 		$ops=$this->_op->findAll(array('qe_id'=>$id),"id asc");
 		$group=$this->_group->findAll(array(),"id asc");
 		$category=$this->_category->findAll(array(),"id");
-		$this->_common->show ( array ('main' => 'qe/qeedit.tpl','category'=>$category,'group'=>$group,'qe'=>$qe,'ops'=>$ops) );
+		$this->_common->show ( array ('main' => 'qe/qeedit.tpl','category'=>$category,'group'=>$group,'qe'=>$qe,'ops'=>$ops,'msg'=>$msg) );
 	}
 	
 	//题库列表
